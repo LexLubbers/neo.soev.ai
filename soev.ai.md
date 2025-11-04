@@ -70,10 +70,9 @@ Then, in your working tree:
 npm i
 npm run frontend
 
-# Not needed for NEO NL yet build the soev.ai admin package & admin frontend
-# cd packages/librechat-admin && npm run build
-# cd ../../admin-frontend       && npm run build
-# cd ..                         # back to repo root
+cd packages/librechat-admin && npm run build
+cd ../../admin-frontend       && npm run build
+cd ..                         # back to repo root
 
 # launch backend with hot-reload
 npm run backend:dev
