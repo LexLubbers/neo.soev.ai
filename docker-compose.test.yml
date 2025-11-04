@@ -78,7 +78,7 @@ services:
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
       RAG_CHECK_EMBEDDING_CTX_LENGTH: false
     env_file:
-      - .env
+      - .env 
     ports:
       - "8000:8000"
   
