@@ -55,6 +55,8 @@ services:
     ports:
       - "8000:8000"
   
+
+  #### WEB SEARCH RELATED SERVICES (not used for NEO NL) ###############
   # firecrawl_redis:
   #     image: redis:alpine
   #     container_name: firecrawl_redis
@@ -172,5 +174,7 @@ services:
 #       reservations:
 #         memory: 1G
 #         cpus: '0.5'
+
+
 volumes:
   pgdata2:

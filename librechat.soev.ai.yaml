@@ -40,14 +40,14 @@ interface:
   parameters: false
   sidePanel: true
   presets: false
-  prompts: true
+  prompts: false
   bookmarks: true
   multiConvo: false
-  agents: true
+  agents: false
   fileCitations: true
   memories: false
   fileSearch: true
-  webSearch: true
+  webSearch: false
   marketplace: 
     use: false
   # Temporary chat retention period in hours (default: 720, min: 1, max: 8760)
@@ -257,46 +257,46 @@ endpoints:
       titleConvo: true
       titleModel: 'openai/gpt-oss-120b:groq'
 
-    - name: 'Nebul'
-      apiKey: '${NEBUL_API_KEY}'
-      baseURL: 'https://api.chat.nebul.io/v1'
-      dropParams: ['tool_choice'] 
-      models:
-        default:
-          - 'gpt-oss-120b-nim'
-          - 'meta-llama/Llama-4-Maverick-17B-128E-Instruct'
-          - 'mistralai/Mistral-Small-3.2-24B-Instruct-2506'
-          - 'deepseek-ai/DeepSeek-R1'
-          - 'Qwen/Qwen3-VL-235B-A22B-Thinking'
-          - 'deepseek-ai/DeepSeek-V3.1'
-        fetch: true
-      modelDisplayLabel: 'Nebul'
-      titleConvo: true
-      titleModel: 'gpt-oss-120b-nim'
+    # - name: 'Nebul'
+    #   apiKey: '${NEBUL_API_KEY}'
+    #   baseURL: 'https://api.chat.nebul.io/v1'
+    #   dropParams: ['tool_choice'] 
+    #   models:
+    #     default:
+    #       - 'gpt-oss-120b-nim'
+    #       - 'meta-llama/Llama-4-Maverick-17B-128E-Instruct'
+    #       - 'mistralai/Mistral-Small-3.2-24B-Instruct-2506'
+    #       - 'deepseek-ai/DeepSeek-R1'
+    #       - 'Qwen/Qwen3-VL-235B-A22B-Thinking'
+    #       - 'deepseek-ai/DeepSeek-V3.1'
+    #     fetch: true
+    #   modelDisplayLabel: 'Nebul'
+    #   titleConvo: true
+    #   titleModel: 'gpt-oss-120b-nim'
 
-    - name: 'UbiOps 2'
-      apiKey: '${UBIOPS_KEY_2}'
-      baseURL: 'https://api.intermax.ubiops.com/v2.1/projects/gradient-ds-proxy-2/openai-compatible/v1'
-      models:
-        default:
-          - 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
-        fetch: false
-      titleConvo: true
-      titleModel: 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
-      addParams:
-        tool_choice: 'required'
+    # - name: 'UbiOps 2'
+    #   apiKey: '${UBIOPS_KEY_2}'
+    #   baseURL: 'https://api.intermax.ubiops.com/v2.1/projects/gradient-ds-proxy-2/openai-compatible/v1'
+    #   models:
+    #     default:
+    #       - 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
+    #     fetch: false
+    #   titleConvo: true
+    #   titleModel: 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
+    #   addParams:
+    #     tool_choice: 'required'
 
-    - name: 'UbiOps 1'
-      apiKey: '${UBIOPS_KEY_1}'
-      baseURL: 'https://api.intermax.ubiops.com/v2.1/projects/gradient-ds-proxy/openai-compatible/v1'
-      models:
-        default:
-          - 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
-        fetch: false
-      titleConvo: true
-      titleModel: 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
-      addParams:
-        tool_choice: 'required'
+    # - name: 'UbiOps 1'
+    #   apiKey: '${UBIOPS_KEY_1}'
+    #   baseURL: 'https://api.intermax.ubiops.com/v2.1/projects/gradient-ds-proxy/openai-compatible/v1'
+    #   models:
+    #     default:
+    #       - 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
+    #     fetch: false
+    #   titleConvo: true
+    #   titleModel: 'ubiops-deployment/gpt-oss-120b/v1/openai/gpt-oss-120b'
+    #   addParams:
+    #     tool_choice: 'required'
 
     # - name: 'UbiOps GPT'
     #   apiKey: '${UBIOPS_KEY_GPT}'
@@ -371,30 +371,30 @@ endpoints:
   #   # (optional) Disable the builder interface for agents
     disableBuilder: false
   #   # (optional) Agent Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
-    capabilities: ["file_search", "web_search", "tools", "chain"]
+    capabilities: ["file_search", "tools", "chain"]
 
 
 includedTools:
   - __none__
 
-webSearch:
-  searchProvider: "serper"
-  scraperType: "firecrawl"
-  # searxngInstanceUrl: "${SEARXNG_INSTANCE_URL}"
-  # searxngApiKey: "${SEARXNG_API_KEY}"
-  # firecrawlApiUrl: "${FIRECRAWL_API_URL}"
-  firecrawlApiKey: "${FIRECRAWL_API_KEY}"
+# webSearch:
+#   searchProvider: "serper"
+#   scraperType: "firecrawl"
+#   # searxngInstanceUrl: "${SEARXNG_INSTANCE_URL}"
+#   # searxngApiKey: "${SEARXNG_API_KEY}"
+#   # firecrawlApiUrl: "${FIRECRAWL_API_URL}"
+#   firecrawlApiKey: "${FIRECRAWL_API_KEY}"
     
-  # Scraper timeout configuration (in milliseconds)
-  scraperTimeout: 30000       # Increased timeout for better reliability
-  topResults: 3
-  numResults: 3
-  # Firecrawl optimization options
-  firecrawlOptions:
-    timeout: 30000            # Increased timeout to match scraperTimeout
-    waitFor: 2000
-    blockAds: true
-    onlyMainContent: true
-    removeBase64Images: true
+#   # Scraper timeout configuration (in milliseconds)
+#   scraperTimeout: 30000       # Increased timeout for better reliability
+#   topResults: 3
+#   numResults: 3
+#   # Firecrawl optimization options
+#   firecrawlOptions:
+#     timeout: 30000            # Increased timeout to match scraperTimeout
+#     waitFor: 2000
+#     blockAds: true
+#     onlyMainContent: true
+#     removeBase64Images: true
 
-  safeSearch: 1
+#   safeSearch: 1
